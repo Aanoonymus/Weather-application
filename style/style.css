@@ -1,0 +1,499 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #fff;
+  transition: 0.2s;
+}
+
+.dark {
+  background-color: #4f4169;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+nav {
+  height: 100px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__logo {
+  font-size: 30px;
+  color: blueviolet;
+}
+
+.dark .header__logo {
+  color: #fff;
+}
+
+form {
+  width: 100%;
+  max-width: 600px;
+}
+
+.header__input-wrapper {
+  max-width: 600px;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 0 10px;
+  box-shadow: 0px 0px 10px gray;
+}
+
+.header__input-wrapper input {
+  width: 100%;
+  flex: 1;
+  height: 100%;
+  border: none;
+  font-size: 18px;
+  outline: none;
+}
+
+.header__input-wrapper i {
+  color: gray;
+}
+
+.header__theme-toggle {
+  height: 30px;
+  width: 60px;
+  background-color: #fff;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  box-shadow: 0px 0px 10px gray;
+}
+
+.toggle-circle {
+  background: blueviolet;
+  color: #fff;
+  height: 28px;
+  width: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: absolute;
+  left: 2px;
+  box-shadow: 0 0 4px #040404;
+  transition: 0.2s;
+}
+
+.toggle-circle > i:last-child {
+  display: none;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 100%;
+}
+
+input[type="checkbox"]:checked + .toggle-circle {
+  left: calc(100% - 30px);
+}
+
+input[type="checkbox"]:checked + .toggle-circle i:last-child {
+  display: block;
+}
+
+input[type="checkbox"]:checked + .toggle-circle i:first-child {
+  display: none;
+}
+
+.hero {
+  border-radius: 20px;
+  margin-top: 20px;
+  height: 400px;
+  background: url("https://inquisitive-dolphin-236ac6.netlify.app/images/banner.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: bottom;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 0px 30px rgba(195, 162, 212, 0.823);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(4, 249, 59, 0) 0%,
+    rgba(159, 24, 227, 0.564) 100%
+  );
+}
+
+.hero__content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 30px 40px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.weather-state-celsius {
+  font-size: 130px;
+  font-weight: 400;
+  margin-left: -5px;
+}
+
+.weather-current-time {
+  margin-bottom: 10px;
+  font-weight: 600;
+  text-align: end;
+}
+
+.last-info-wrapper {
+  width: 100%;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.current-weather-add-info {
+  grid-area: add-info;
+  background-color: #fff;
+  border-radius: 30px;
+  display: flex;
+  overflow: hidden;
+  padding: 30px;
+  border: 1px solid #ad9ec9;
+  box-shadow: 0px 0px 30px rgba(159, 101, 189, 0.823);
+  margin-bottom: 40px;
+}
+
+.map__wrapper {
+  width: 100%;
+  border-radius: 20px;
+  margin-top: 40px;
+  height: 300px;
+  padding: 10px;
+  background: #fff;
+}
+
+.map__wrapper iframe {
+  border-radius: 20px;
+}
+
+.add-info {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.add-info:last-child {
+  border-left: 1px solid #ad9ec9;
+}
+
+.add-info-item {
+  display: flex;
+  align-items: center;
+}
+
+.second {
+  margin-left: 50px;
+}
+
+.add-info-item i {
+  font-size: 64px;
+  margin-right: 15px;
+  color: blueviolet;
+}
+
+.add-info-item-title {
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.current-weather-indicator {
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
+  justify-content: space-between;
+  align-content: center;
+  grid-template-rows: 200px;
+  padding: 20px;
+  gap: 20px;
+  grid-area: indicator;
+  background: linear-gradient(
+    180deg,
+    rgba(133, 144, 255, 1) 0%,
+    rgba(166, 57, 241, 1) 100%
+  );
+  border-radius: 30px;
+  box-shadow: 0px 0px 30px rgba(159, 101, 189, 0.823);
+}
+
+.current-weather-indicator > div:first-child {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 30px;
+  background-color: #fff;
+  border-radius: 50%;
+  background-image: url(../images/air-pressure.png);
+}
+
+.wind-arrow {
+  position: relative;
+  transition: 0.3s;
+}
+
+.wind-arrow i {
+  position: absolute;
+  top: -50px;
+  font-size: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.current-weather-indicator > div:last-child {
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  background-position: center;
+  border-radius: 50%;
+  background-image: url(../images/compass.svg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-wrapper {
+  width: 100%;
+  max-width: 850px;
+  height: 520px;
+  grid-area: hourly;
+  background-color: #fff;
+  border-radius: 30px;
+  border: 1px solid #ad9ec9;
+  box-shadow: 0px 0px 30px rgba(159, 101, 189, 0.823);
+  padding: 10px;
+}
+
+.chart {
+  background-color: #fff;
+  border-radius: 30px 30px 0 0;
+  height: 400px;
+}
+
+.my-chart {
+  height: 100%;
+}
+
+.day-info {
+  width: 98%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.day-info div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media only screen and (min-width: 1024px) {
+  .chart-wrapper {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .container {
+    max-width: 1000px;
+    width: 100%;
+  }
+
+  .header__logo {
+    font-size: 20px;
+    width: 200px;
+  }
+
+  .header__input-wrapper {
+    height: 35px;
+    max-width: 450px;
+  }
+
+  .header__input-wrapper input {
+    font-size: 16px;
+  }
+
+  .header__theme-toggle {
+    width: 70px;
+  }
+
+  .last-info-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .add-info-item-title {
+    font-size: 30px;
+  }
+
+  .add-info-item div:last-child {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .container {
+    margin: auto;
+    padding: 0 15px;
+  }
+
+  nav {
+    height: 60px;
+  }
+
+  .header__logo {
+    font-size: 16px;
+    width: 250px;
+  }
+
+  .header__input-wrapper {
+    height: 30px;
+    max-width: 300px;
+    margin-left: 10px;
+  }
+
+  .header__input-wrapper input {
+    font-size: 12px;
+  }
+
+  .header__theme-toggle {
+    width: 110px;
+    margin-left: 30px;
+  }
+
+  .hero {
+    height: 160px;
+  }
+
+  .hero__content {
+    padding: 10px 5px;
+  }
+
+  .hero__content-wrapper-info {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .weather-state-celsius {
+    font-size: 70px;
+  }
+
+  .weather-state-region {
+    font-size: 14px;
+  }
+
+  .hero__content-wrapper-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .map__wrapper {
+    margin-top: 20px;
+  }
+
+  .last-info-wrapper {
+    margin-top: 20px;
+  }
+
+  .add-info-items-wrapper {
+    width: 100%;
+  }
+
+  .add-info-item i {
+    font-size: 32px;
+  }
+
+  .add-info-item-title {
+    font-size: 20px;
+  }
+
+  .second {
+    margin-left: 20px;
+  }
+
+  .current-weather-add-info {
+    padding: 20px;
+  }
+
+  .weather-current-time {
+    font-weight: 400;
+  }
+
+  .weather-current-name {
+    font-size: 12px;
+  }
+
+  .current-weather-indicator {
+    grid-template-columns: repeat(2, 145px);
+    align-items: center;
+    gap: 5px;
+    padding: 0 10px;
+  }
+
+  .wind-arrow i {
+    top: 0;
+  }
+
+  .current-weather-indicator div:first-child {
+    width: 100%;
+    height: 70%;
+    font-size: 18px;
+  }
+
+  .current-weather-indicator div:last-child {
+    width: 100%;
+    height: 70%;
+    position: relative;
+  }
+
+  .chart-wrapper {
+    height: 370px;
+  }
+
+  .chart {
+    height: 250px;
+  }
+}
